@@ -1,0 +1,234 @@
+/* ---------------------------------------------------
+   CV Website Styles
+   Palette: paper #FAF9F6 / ink #1B1B1F / teal #2F6F62 / clay #C97B4A
+--------------------------------------------------- */
+
+:root {
+  --paper: #FAF9F6;
+  --ink: #1B1B1F;
+  --ink-soft: #55565C;
+  --teal: #2F6F62;
+  --clay: #C97B4A;
+  --line: #DEDAD0;
+  --max: 700px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 72px 28px 96px;
+}
+
+/* ---------- Header ---------- */
+
+header.hero {
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  font-size: 15px;
+  color: var(--clay);
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+h1.name {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1.05;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.role {
+  color: var(--ink-soft);
+  font-size: 19px;
+  margin: 0 0 22px;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.contact-row > * {
+  margin: 0 18px 4px 0; /* fallback spacing for browsers without flex gap */
+}
+
+.contact-row a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-row a:hover,
+.contact-row a:focus-visible {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+/* ---------- Sections ---------- */
+
+section.block {
+  margin-bottom: 44px;
+}
+
+h2.heading {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--teal);
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.lede {
+  color: var(--ink);
+  max-width: 62ch;
+}
+
+/* ---------- Skills chips ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chips li {
+  margin: 0 10px 10px 0; /* fallback spacing for browsers without flex gap */
+}
+
+.chips li {
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 3px;
+  font-size: 14.5px;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* ---------- Timeline entries (experience / education) ---------- */
+
+.entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 4px 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-child { border-bottom: none; }
+
+.entry .when {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  padding-top: 3px;
+}
+
+.entry .what h3 {
+  margin: 0 0 2px;
+  font-size: 17.5px;
+  font-weight: 600;
+}
+
+.entry .what .org {
+  color: var(--clay);
+  font-size: 15px;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.entry .what ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink-soft);
+}
+
+.entry .what li { margin-bottom: 4px; }
+
+/* ---------- Projects ---------- */
+
+.projects {
+  display: grid;
+  gap: 18px;
+}
+
+.project {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 4px;
+}
+
+.project h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.project p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+}
+
+.project .stack {
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: var(--teal);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  .page { padding: 48px 20px 72px; }
+  h1.name { font-size: 38px; }
+  .entry { grid-template-columns: 1fr; }
+  .entry .when { padding-top: 0; }
+}
+
+/* ---------- Accessibility ---------- */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
