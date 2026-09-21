@@ -10,12 +10,17 @@
   --teal: #2F6F62;
   --clay: #C97B4A;
   --line: #DEDAD0;
-  --max: 700px;
+  --max: 740px;
+  --transition: 0.2s ease-in-out;
 }
 
-* { box-sizing: border-box; }
+* { 
+  box-sizing: border-box; 
+}
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+}
 
 body {
   margin: 0;
@@ -23,89 +28,91 @@ body {
   color: var(--ink);
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .page {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 72px 28px 96px;
+  padding: 80px 32px 96px;
 }
 
 /* ---------- Header ---------- */
 
 header.hero {
-  margin-bottom: 56px;
+  margin-bottom: 64px;
 }
 
 .eyebrow {
-  font-size: 15px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--clay);
-  margin: 0 0 6px;
+  margin: 0 0 12px;
   font-weight: 600;
 }
 
 h1.name {
   font-family: "Fraunces", Georgia, "Times New Roman", serif;
   font-weight: 600;
-  font-size: 52px;
+  font-size: 56px;
   line-height: 1.05;
-  margin: 0 0 10px;
-  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
 }
 
 .role {
   color: var(--ink-soft);
-  font-size: 19px;
-  margin: 0 0 22px;
+  font-size: 20px;
+  margin: 0 0 28px;
+  font-weight: 400;
 }
 
 .contact-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 18px;
+  gap: 8px 24px;
   font-size: 15px;
   color: var(--ink-soft);
   border-top: 1px solid var(--line);
-  padding-top: 16px;
-}
-
-.contact-row > * {
-  margin: 0 18px 4px 0; /* fallback spacing for browsers without flex gap */
+  padding-top: 20px;
 }
 
 .contact-row a {
   color: var(--ink-soft);
   text-decoration: none;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
 }
 
 .contact-row a:hover,
 .contact-row a:focus-visible {
   color: var(--teal);
-  border-color: var(--teal);
+  border-bottom: 1px solid var(--teal);
 }
 
 /* ---------- Sections ---------- */
 
 section.block {
-  margin-bottom: 44px;
+  margin-bottom: 56px;
 }
 
 h2.heading {
   font-family: "Fraunces", Georgia, serif;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 24px;
   color: var(--teal);
-  margin: 0 0 18px;
-  padding-bottom: 10px;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
 }
 
 .lede {
   color: var(--ink);
-  max-width: 62ch;
+  max-width: 65ch;
+  font-size: 17.5px;
 }
 
 /* ---------- Skills chips ---------- */
@@ -113,81 +120,107 @@ h2.heading {
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .chips li {
-  margin: 0 10px 10px 0; /* fallback spacing for browsers without flex gap */
-}
-
-.chips li {
   border: 1px solid var(--line);
-  padding: 6px 14px;
-  border-radius: 3px;
+  padding: 6px 16px;
+  border-radius: 6px;
   font-size: 14.5px;
+  font-weight: 500;
   color: var(--ink);
   background: #fff;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+.chips li:hover {
+  border-color: var(--teal);
+  box-shadow: 0 2px 4px rgba(47, 111, 98, 0.1);
 }
 
 /* ---------- Timeline entries (experience / education) ---------- */
 
 .entry {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 4px 24px;
-  padding: 18px 0;
+  grid-template-columns: 160px 1fr;
+  gap: 12px 24px;
+  padding: 24px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.entry:last-child { border-bottom: none; }
+.entry:last-child { 
+  border-bottom: none; 
+  padding-bottom: 0;
+}
 
 .entry .when {
   color: var(--ink-soft);
-  font-size: 14.5px;
-  padding-top: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding-top: 4px;
+  font-variant-numeric: tabular-nums;
 }
 
 .entry .what h3 {
-  margin: 0 0 2px;
-  font-size: 17.5px;
+  margin: 0 0 4px;
+  font-size: 18px;
   font-weight: 600;
+  color: var(--ink);
 }
 
 .entry .what .org {
   color: var(--clay);
   font-size: 15px;
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   font-weight: 500;
 }
 
 .entry .what ul {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 20px;
   color: var(--ink-soft);
 }
 
-.entry .what li { margin-bottom: 4px; }
+.entry .what li { 
+  margin-bottom: 6px; 
+}
+
+.entry .what li::marker {
+  color: var(--clay);
+}
 
 /* ---------- Projects ---------- */
 
 .projects {
   display: grid;
-  gap: 18px;
+  gap: 20px;
 }
 
 .project {
   border: 1px solid var(--line);
   background: #fff;
-  padding: 18px 20px;
-  border-radius: 4px;
+  padding: 24px;
+  border-radius: 8px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.project:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+  border-color: #d2cebf;
 }
 
 .project h3 {
-  margin: 0 0 6px;
-  font-size: 17px;
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--ink);
 }
 
 .project p {
@@ -197,28 +230,46 @@ h2.heading {
 }
 
 .project .stack {
-  margin-top: 10px;
+  margin-top: 16px;
   font-size: 13.5px;
+  font-weight: 500;
   color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* ---------- Footer ---------- */
 
 footer {
-  margin-top: 60px;
-  padding-top: 20px;
+  margin-top: 72px;
+  padding-top: 24px;
   border-top: 1px solid var(--line);
   color: var(--ink-soft);
   font-size: 14px;
+  text-align: center;
 }
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 560px) {
-  .page { padding: 48px 20px 72px; }
-  h1.name { font-size: 38px; }
-  .entry { grid-template-columns: 1fr; }
-  .entry .when { padding-top: 0; }
+@media (max-width: 600px) {
+  .page { 
+    padding: 48px 24px 72px; 
+  }
+  h1.name { 
+    font-size: 42px; 
+  }
+  .entry { 
+    grid-template-columns: 1fr; 
+    gap: 4px;
+  }
+  .entry .when { 
+    padding-top: 0; 
+    margin-bottom: 8px;
+  }
+  .contact-row {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 /* ---------- Accessibility ---------- */
@@ -226,9 +277,59 @@ footer {
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--teal);
-  outline-offset: 2px;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .project, .chips li, .contact-row a { transition: none; transform: none; }
+}
+
+/* ---------- Print Styles (Crucial for CVs) ---------- */
+
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+  
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
+
+  .page {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure colors print correctly if user allows background graphics */
+  h2.heading, .project .stack { color: var(--teal) !important; }
+  .eyebrow, .entry .what .org { color: var(--clay) !important; }
+
+  /* Avoid page breaks inside crucial blocks */
+  .entry, .project, section.block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Simplify links for print */
+  .contact-row a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  /* Hide interactive/web-only elements */
+  footer {
+    display: none;
+  }
+
+  /* Adjust borders for print clarity */
+  .chips li, .project {
+    border: 1px solid #ccc;
+    box-shadow: none !important;
+    transform: none !important;
+  }
 }
